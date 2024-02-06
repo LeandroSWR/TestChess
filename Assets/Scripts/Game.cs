@@ -103,5 +103,6 @@ public class Game : MonoBehaviour
     {
         currentPlayer = currentPlayer == Player.White ? Player.Black : Player.White;
         playerText.text = $"Current Player: {currentPlayer}";
+
     }
 }
