@@ -1,19 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
     public static Game Instance { get; private set; }
 
     [SerializeField] private GameObject chessPiece;
+    [SerializeField] private TMP_Text playerText;
 
     private GameObject[,] positions = new GameObject[8, 8];
     private List<GameObject> playerBlack = new List<GameObject>();
     private List<GameObject> playerWhite = new List<GameObject>();
 
     private Player currentPlayer;
+    public Player CurrentPlayer => currentPlayer;
 
     private bool gameOver = false;
 
@@ -29,6 +33,9 @@ public class Game : MonoBehaviour
             Destroy(Instance);
         }
         Instance = this;
+
+        currentPlayer = Player.White;
+        playerText.text = "Current Player: White";
 
         foreach (ChessPieceSO piece in pieceList)
         {
@@ -92,9 +99,9 @@ public class Game : MonoBehaviour
         return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SwitchTurn()
     {
-        
+        currentPlayer = currentPlayer == Player.White ? Player.Black : Player.White;
+        playerText.text = $"Current Player: {currentPlayer}";
     }
 }

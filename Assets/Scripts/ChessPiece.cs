@@ -33,6 +33,8 @@ public class ChessPiece : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (Game.Instance.CurrentPlayer != Owner) return;
+
         DestroyMovePlates();
 
         InitializeMovePlates();

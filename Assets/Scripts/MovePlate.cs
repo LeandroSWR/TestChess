@@ -32,6 +32,8 @@ public class MovePlate : MonoBehaviour
 
     private void OnMouseUp()
     {
+        Game.Instance.SwitchTurn();
+
         if (attackPlate)
         {
             GameObject chessPiece = Game.Instance.GetPosition(XBoardPos, YBoardPos);

@@ -17,6 +17,6 @@ MonoBehaviour:
   moveType: 1
   sprite: {fileID: 21300000, guid: 04f7603b01d2374438fd04736ae6d5c6, type: 3}
   possibleStartPositions:
-  - x: 6
+  - x: 4
     y: 0
   possibleLineMoveDir: []
